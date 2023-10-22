@@ -1,3 +1,3 @@
 #!/bin/sh
-prettier --parser html --write *.html
-prettier --parser babel --write *.js
+npx prettier --parser html --write *.html
+npx prettier --parser babel --write *.js
