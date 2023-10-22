@@ -1,11 +1,11 @@
 // From https://www.geeksforgeeks.org/how-to-share-code-between-node-js-and-the-browser/
 // All the code in this module is enclosed in a closure.
-(function(exports) {
+(function (exports) {
   function getByYear(content) {
-    let lines = '';
-    var x = content.split('\r\n');
+    let lines = "";
+    var x = content.split("\r\n");
     for (var i = 0; i < x.length; i++) {
-      y = x[i].split('\t');
+      y = x[i].split("\t");
       x[i] = y;
     }
     let byYear = {};
@@ -15,23 +15,23 @@
       if (byYear[year] == undefined) {
         byYear[year] = [];
       }
-      byYear[year].push('*');
+      byYear[year].push("*");
     }
     for (const [year, movies] of Object.entries(byYear)) {
-      let stars = '';
+      let stars = "";
       for (var i = 0; i < movies.length; i++) {
-        stars += '*';
+        stars += "*";
       }
       lines += `${year} ${stars} ${movies.length}\n`;
     }
-    lines = lines.replace(/\n+$/, '');
+    lines = lines.replace(/\n+$/, "");
     return lines;
   }
   function getByRating(content) {
-    let lines = '';
-    var x = content.split('\r\n');
+    let lines = "";
+    var x = content.split("\r\n");
     for (var i = 0; i < x.length; i++) {
-      y = x[i].split('\t');
+      y = x[i].split("\t");
       x[i] = y;
     }
     let byRating = {};
@@ -45,12 +45,12 @@
       byRating[rating].push(title);
     }
     for (const [rating, movies] of Object.entries(byRating)) {
-      let stars = '';
+      let stars = "";
       for (var i = 0; i < movies.length; i++) {
         lines += `${rating / 10}\t${movies[i]}\n`;
       }
     }
-    lines = lines.replace(/\n+$/, '');
+    lines = lines.replace(/\n+$/, "");
     return lines;
   }
 
@@ -59,4 +59,4 @@
   // In a browser this will be a function in the global object "asciiLib".
   exports.getByYear = getByYear;
   exports.getByRating = getByRating;
-})(typeof exports === 'undefined' ? (this['asciiLib'] = {}) : exports);
+})(typeof exports === "undefined" ? (this["asciiLib"] = {}) : exports);
