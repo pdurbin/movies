@@ -1,2 +1,5 @@
 movies.tsv
 download-spreadsheet.sh
+node_modules
+package.json
+package-lock.json
