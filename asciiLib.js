@@ -1,6 +1,31 @@
 // From https://www.geeksforgeeks.org/how-to-share-code-between-node-js-and-the-browser/
 // All the code in this module is enclosed in a closure.
 (function (exports) {
+  function getByLatest(content) {
+    let lines = "";
+    var x = content.split("\r\n");
+    for (var i = 0; i < x.length; i++) {
+      y = x[i].split("\t");
+      x[i] = y;
+    }
+    let byDate = {};
+    x.shift(); // remove header ("(Last) Watched")
+    for (const row of x) {
+      let title = row[1];
+      let dateWatched = row[0];
+      if (byDate[dateWatched] == undefined) {
+        byDate[dateWatched] = [];
+      }
+      byDate[dateWatched].push(title);
+    }
+    for (const [date, movies] of Object.entries(byDate)) {
+      for (var i = 0; i < movies.length; i++) {
+        lines += `${date}\t${movies[i]}\n`;
+      }
+    }
+    lines = lines.replace(/\n+$/, "");
+    return lines;
+  }
   function getByYear(content) {
     let lines = "";
     var x = content.split("\r\n");
@@ -57,6 +82,7 @@
   // Export the functions to exports.
   // In node.js this will be the module.exports.
   // In a browser this will be a function in the global object "asciiLib".
+  exports.getByLatest = getByLatest;
   exports.getByYear = getByYear;
   exports.getByRating = getByRating;
 })(typeof exports === "undefined" ? (this["asciiLib"] = {}) : exports);

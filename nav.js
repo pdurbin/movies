@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navDiv = document.createElement("div");
   // home
   const home = document.createElement("span");
-  home.innerHTML = '<a href="/">' + "Home" + "</a> ";
+  home.innerHTML = '<a href="/">' + "Last Watched" + "</a> ";
   nav.append(home);
   // ratings
   const ratings = document.createElement("span");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var slug = path[1];
   console.log("slug from path is " + slug);
   if (slug === "") {
-    //console.log("home");
+    fetchText("byLatest");
   } else if (slug === "byyear") {
     fetchText("byYear");
   } else if (slug === "ratings") {

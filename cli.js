@@ -11,5 +11,5 @@ switch (myArgs[0]) {
     console.log(utilities.getByYear(content));
     break;
   default:
-    console.log(utilities.getByYear(content));
+    console.log(utilities.getByLatest(content));
 }
