@@ -63,11 +63,16 @@
     x.shift(); // remove header ("Rating")
     for (const row of x) {
       let title = row[1];
+      let disc = row[4];
       let rating = parseFloat(row[3]) * 10;
       if (byRating[rating] == undefined) {
         byRating[rating] = [];
       }
-      byRating[rating].push(title);
+      let dvd = "";
+      if (disc === "DVD") {
+        dvd = "📀";
+      }
+      byRating[rating].push(title + " " + dvd);
     }
     for (const [rating, movies] of Object.entries(byRating)) {
       let stars = "";
