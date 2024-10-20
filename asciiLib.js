@@ -75,9 +75,10 @@
       byRating[rating].push(title + " " + dvd);
     }
     for (const [rating, movies] of Object.entries(byRating)) {
+      let moviesSorted = movies.sort().reverse();
       let stars = "";
-      for (var i = 0; i < movies.length; i++) {
-        lines += `${rating / 10}\t${movies[i]}\n`;
+      for (var i = 0; i < moviesSorted.length; i++) {
+        lines += `${rating / 10}\t${moviesSorted[i]}\n`;
       }
     }
     lines = lines.replace(/\n+$/, "");
