@@ -71,6 +71,8 @@
       let disc_icon = "";
       if (disc === "DVD") {
         disc_icon = "📀";
+      } else if (disc === "Blu-ray") {
+        disc_icon = "🔵";
       }
       byRating[rating].push(title + " " + disc_icon);
     }
