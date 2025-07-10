@@ -68,11 +68,11 @@
       if (byRating[rating] == undefined) {
         byRating[rating] = [];
       }
-      let dvd = "";
+      let disc_icon = "";
       if (disc === "DVD") {
-        dvd = "📀";
+        disc_icon = "📀";
       }
-      byRating[rating].push(title + " " + dvd);
+      byRating[rating].push(title + " " + disc_icon);
     }
     for (const [rating, movies] of Object.entries(byRating)) {
       let moviesSorted = movies.sort().reverse();
